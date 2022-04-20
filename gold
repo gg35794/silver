@@ -1,0 +1,14 @@
+void reveal(int x, int y){
+  if(outBounds(x,y))return;
+  if(revealed[x][y])return;
+  revealed[x][y]=true;
+  if(calcNear(x,y)!=0)return;
+  reveal(x-1,y-1);
+  reveal(x-1,y+1);
+  reveal(x+1,y-1);
+  reveal(x+1,y+1);
+  reveal(x-1,y);
+  reveal(x+1,y);
+  reveal(x,y-1);
+  reveal(x,y+1);
+}
